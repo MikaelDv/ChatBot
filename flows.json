@@ -1,0 +1,75 @@
+[
+    {
+        "id": "80c307c6f30f3d43",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d15d17896041607a",
+        "type": "inject",
+        "z": "80c307c6f30f3d43",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hello World!",
+        "payloadType": "str",
+        "x": 490,
+        "y": 240,
+        "wires": [
+            [
+                "5669b48b90873385"
+            ]
+        ]
+    },
+    {
+        "id": "46efc0b5b83903bf",
+        "type": "debug",
+        "z": "80c307c6f30f3d43",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "5669b48b90873385",
+        "type": "function",
+        "z": "80c307c6f30f3d43",
+        "name": "function 1",
+        "func": "var dateNow = new Date();\nvar dateNowString = dateNow.toLocaleTimeString();\n\nmsg.payload = msg.payload + \" A hora é: \" + dateNowString + \".\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 280,
+        "wires": [
+            [
+                "46efc0b5b83903bf"
+            ]
+        ]
+    }
+]
